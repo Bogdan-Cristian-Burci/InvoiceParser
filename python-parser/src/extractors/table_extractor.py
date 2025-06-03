@@ -576,7 +576,7 @@ class TableExtractor:
         return best_delivery
     
     def _extract_products_from_table(self, df, table_index: int, page_number: int, col_map: Dict[str, str]) -> List[ProductData]:
-        """Extract products from a table using flexible column mapping."""
+        """Extract products from a table using proper column mapping."""
         
         products = []
         
@@ -585,84 +585,282 @@ class TableExtractor:
             logger.debug(f"Table {table_index + 1} has insufficient rows for product extraction")
             return products
         
-        # Look for product-like patterns in any column that might contain product codes
-        # This is more flexible than requiring specific column headers
+        # Try structured extraction first if we have proper column mapping
+        if self._validate_required_columns(col_map, table_index, page_number):
+            logger.debug(f"Using structured extraction for table {table_index + 1}")
+            return self._extract_products_structured(df, table_index, page_number, col_map)
+        
+        # Fallback to flexible extraction with improved logic
+        logger.debug(f"Using flexible extraction for table {table_index + 1}")
+        return self._extract_products_flexible(df, table_index, page_number, col_map)
+    
+    def _extract_products_structured(self, df, table_index: int, page_number: int, col_map: Dict[str, str]) -> List[ProductData]:
+        """Extract products using structured column mapping."""
+        
+        products = []
+        
         for row_index in range(1, len(df)):  # Skip header row
             try:
-                row_data = df.iloc[row_index]
-                
-                # Look for product codes in any column - they typically start with letters and contain numbers
-                product_code = None
-                product_code_column = None
-                
-                for col_idx, cell_value in enumerate(row_data):
-                    cell_str = str(cell_value).strip()
-                    
-                    # Look for patterns that look like product codes
-                    if (cell_str and 
-                        len(cell_str) > 3 and 
-                        cell_str.lower() != 'nan' and 
-                        not cell_str.lower().startswith('total') and
-                        re.match(r'^[A-Z]{2,}', cell_str)):  # Starts with 2+ letters
-                        
-                        product_code = cell_str.split('\n')[0].strip()  # Take first line if multi-line
-                        product_code_column = col_idx
-                        break
-                
-                if not product_code:
-                    continue
-                
-                # Try to extract numeric values (quantity, price, total) from other columns
-                numeric_values = []
-                for col_idx, cell_value in enumerate(row_data):
-                    if col_idx == product_code_column:
-                        continue
-                    
-                    # Parse numeric values
-                    parsed_value = self._parse_numeric_field(cell_value)
-                    if parsed_value and float(parsed_value) > 0:
-                        numeric_values.append(parsed_value)
-                
-                # If we found at least 2 numeric values, treat this as a product row
-                if len(numeric_values) >= 2:
-                    product = ProductData()
-                    product.product_code = product_code
-                    
-                    # Build description from additional lines in product code cell
-                    description_parts = []
-                    cell_lines = str(row_data.iloc[product_code_column]).split('\n')
-                    for line in cell_lines[1:]:  # Skip first line (product code)
-                        line = line.strip()
-                        if line and line.lower() != 'nan':
-                            description_parts.append(line)
-                    
-                    if description_parts:
-                        product.description = " | ".join(description_parts)
-                    
-                    # Assign numeric values - assume last value is total price, second to last is unit price, etc.
-                    if len(numeric_values) >= 1:
-                        product.total_price = numeric_values[-1]  # Last value is typically total price
-                    if len(numeric_values) >= 2:
-                        product.unit_price = numeric_values[-2]   # Second to last is typically unit price
-                    if len(numeric_values) >= 3:
-                        product.quantity = numeric_values[-3]     # Third to last is typically quantity
-                    
-                    # Try to find unit of measure in text
-                    for cell_value in row_data:
-                        cell_str = str(cell_value).strip().upper()
-                        if any(unit in cell_str for unit in ['MT', 'KG', 'PZ', 'NR', 'KM']):
-                            product.unit_of_measure = cell_str
-                            break
-                    
+                product = self._extract_product_from_row(df, row_index, col_map)
+                if product:
                     products.append(product)
-                    logger.debug(f"Extracted product: {product.product_code} - Qty: {product.quantity}, Price: {product.total_price}")
+                    logger.debug(f"Structured extraction found product: {product.product_code} - Qty: {product.quantity}, Price: {product.total_price}")
                     
             except Exception as e:
                 logger.warning(f"Error extracting product from row {row_index} in table {table_index + 1}: {e}")
                 continue
         
-        logger.debug(f"Extracted {len(products)} products from table {table_index + 1}")
+        logger.debug(f"Structured extraction found {len(products)} products from table {table_index + 1}")
         return products
+    
+    def _extract_products_flexible(self, df, table_index: int, page_number: int, col_map: Dict[str, str]) -> List[ProductData]:
+        """Extract products using enhanced Camelot+Ghostscript data with proper field parsing."""
+        
+        products = []
+        
+        logger.debug(f"Flexible extraction - analyzing table structure:")
+        logger.debug(f"Table shape: {df.shape}")
+        logger.debug(f"Headers: {df.iloc[0].tolist()}")
+        
+        # Enhanced row processing to handle Camelot's improved table detection
+        for row_index in range(1, len(df)):  # Skip header row
+            try:
+                row_data = df.iloc[row_index]
+                logger.debug(f"Processing row {row_index}: {row_data.tolist()}")
+                
+                # Step 1: Extract and separate MMA codes from descriptions
+                extracted_data = self._parse_row_fields(row_data)
+                
+                if not extracted_data['has_product_data']:
+                    continue
+                    
+                # Step 2: Extract numeric values from the same row
+                numeric_data = self._extract_numeric_from_row(row_data, extracted_data['product_column'])
+                
+                if not numeric_data['valid']:
+                    logger.debug(f"Row {row_index}: Insufficient numeric data")
+                    continue
+                
+                # Step 3: Create product with proper field assignment
+                product = ProductData()
+                
+                # Correct field assignment - MMA codes should be product_code
+                if extracted_data['mma_code']:
+                    # MMA code found - use as product code
+                    product.product_code = extracted_data['mma_code']
+                    # If we also found a description, use it, otherwise use the cell content
+                    if extracted_data['description']:
+                        product.description = extracted_data['description'] 
+                    else:
+                        # Use the rest of the cell content excluding the MMA code
+                        product.description = self._extract_remaining_content_as_description(row_data.iloc[extracted_data['product_column']], extracted_data['mma_code'])
+                else:
+                    # No MMA code found, use description as product code (fallback)
+                    product.product_code = extracted_data['description']
+                    product.description = None
+                product.quantity = numeric_data['quantity']
+                product.unit_price = numeric_data['unit_price'] 
+                product.total_price = numeric_data['total_price']
+                product.unit_of_measure = self._clean_unit_of_measure(numeric_data['unit_of_measure'])
+                
+                # Validate the product makes sense
+                if self._validate_product_data(product):
+                    products.append(product)
+                    logger.debug(f"✅ Created product: {product.product_code} | Qty: {product.quantity} | Price: {product.total_price}")
+                else:
+                    logger.debug(f"❌ Rejected invalid product data for row {row_index}")
+                    
+            except Exception as e:
+                logger.warning(f"Error processing row {row_index}: {e}")
+                continue
+        
+        logger.info(f"Flexible extraction: {len(products)} valid products from table {table_index + 1}")
+        return products
+    
+    def _parse_row_fields(self, row_data) -> Dict[str, Any]:
+        """Parse a table row to identify MMA codes, descriptions, and product column."""
+        
+        result = {
+            'mma_code': None,
+            'description': None, 
+            'product_column': None,
+            'has_product_data': False
+        }
+        
+        for col_idx, cell_value in enumerate(row_data):
+            cell_str = str(cell_value).strip()
+            if not cell_str or cell_str.lower() == 'nan':
+                continue
+                
+            cell_lines = cell_str.split('\n')
+            
+            # Look for MMA product codes anywhere in the cell
+            mma_codes = []
+            descriptions = []
+            
+            for line in cell_lines:
+                line = line.strip()
+                
+                # Check for MMA codes
+                if re.match(r'^MMA\d+\.\d+\.\d+', line):
+                    mma_codes.append(line)
+                
+                # Check for Italian product descriptions
+                desc_patterns = [
+                    r'^Interno adesivo.*',
+                    r'^Filo per impunture.*',
+                    r'^Etichetta a nr.*',
+                    r'^Particolare per confezione.*',
+                    r'^Sigillo.*',
+                    r'^Tessuto.*',
+                    r'^Bottone.*',
+                    r'^Materiale da imballo.*'
+                ]
+                
+                for pattern in desc_patterns:
+                    if re.match(pattern, line, re.IGNORECASE):
+                        descriptions.append(line)
+                        break
+            
+            # Priority: MMA codes are the real product codes
+            if mma_codes:
+                result['mma_code'] = mma_codes[0]  # Use first MMA code found
+                result['product_column'] = col_idx
+                result['has_product_data'] = True
+                
+                # If we also found descriptions, they go in description field
+                if descriptions:
+                    result['description'] = descriptions[0]
+                    
+                logger.debug(f"Found MMA code: {result['mma_code']} in column {col_idx}")
+                break
+                
+            # Fallback: If no MMA code, use description as identifier
+            elif descriptions and not result['has_product_data']:
+                result['description'] = descriptions[0]
+                result['product_column'] = col_idx
+                result['has_product_data'] = True
+                logger.debug(f"Found description only: {result['description']} in column {col_idx}")
+        
+        return result
+    
+    def _extract_remaining_content_as_description(self, cell_content: str, mma_code: str) -> str:
+        """Extract non-MMA content from cell as description."""
+        try:
+            cell_str = str(cell_content).strip()
+            lines = cell_str.split('\n')
+            
+            # Remove the MMA code line and return the rest
+            description_parts = []
+            for line in lines:
+                line = line.strip()
+                if line and not line.startswith('MMA'):
+                    description_parts.append(line)
+            
+            return ' | '.join(description_parts) if description_parts else None
+        except:
+            return None
+    
+    def _extract_numeric_from_row(self, row_data, exclude_column: int) -> Dict[str, Any]:
+        """Extract numeric values and unit of measure from a table row."""
+        
+        result = {
+            'quantity': None,
+            'unit_price': None, 
+            'total_price': None,
+            'unit_of_measure': None,
+            'valid': False
+        }
+        
+        numeric_values = []
+        unit_candidates = []
+        
+        for col_idx, cell_value in enumerate(row_data):
+            if col_idx == exclude_column:  # Skip the product column
+                continue
+                
+            cell_str = str(cell_value).strip()
+            if not cell_str or cell_str.lower() == 'nan':
+                continue
+            
+            # Try to parse as numeric value
+            parsed_value = self._parse_numeric_field(cell_str)
+            if parsed_value and float(parsed_value) > 0:
+                numeric_values.append((col_idx, parsed_value))
+            
+            # Look for unit of measure indicators
+            if any(unit in cell_str.upper() for unit in ['MT', 'KG', 'PZ', 'NR', 'KM']):
+                unit_candidates.append(cell_str)
+        
+        # Need at least 3 numeric values for a complete product
+        if len(numeric_values) >= 3:
+            # Sort by column position (left to right)
+            numeric_values.sort(key=lambda x: x[0])
+            
+            # Assign based on typical Italian invoice structure
+            result['quantity'] = numeric_values[-3][1]      # Third from end
+            result['unit_price'] = numeric_values[-2][1]    # Second from end
+            result['total_price'] = numeric_values[-1][1]   # Last value
+            result['valid'] = True
+            
+            # Use the first valid unit of measure found
+            if unit_candidates:
+                result['unit_of_measure'] = unit_candidates[0]
+                
+            logger.debug(f"Numeric extraction: Q={result['quantity']}, P={result['unit_price']}, T={result['total_price']}")
+        
+        return result
+    
+    def _clean_unit_of_measure(self, unit_str: str) -> Optional[str]:
+        """Clean and standardize unit of measure string."""
+        
+        if not unit_str:
+            return None
+            
+        # Handle multi-line unit strings (common issue from current extraction)
+        lines = str(unit_str).split('\n')
+        
+        # Look for standard units
+        standard_units = ['MT', 'KG', 'PZ', 'NR', 'KM']
+        
+        for line in lines:
+            line = line.strip().upper()
+            if line in standard_units:
+                return line
+                
+        # If no standard unit found, return first non-empty line
+        for line in lines:
+            line = line.strip()
+            if line and line.upper() != 'NAN':
+                return line[:10]  # Truncate to reasonable length
+                
+        return None
+    
+    def _validate_product_data(self, product: ProductData) -> bool:
+        """Validate that product data makes sense before adding to results."""
+        
+        # Must have a product identifier
+        if not product.product_code:
+            return False
+            
+        # Must have numeric values
+        if not all([product.quantity, product.unit_price, product.total_price]):
+            return False
+            
+        try:
+            # Validate mathematical relationship (with tolerance for rounding)
+            calc_total = float(product.quantity) * float(product.unit_price)
+            actual_total = float(product.total_price)
+            diff_percent = abs(calc_total - actual_total) / actual_total * 100
+            
+            if diff_percent > 5:  # Allow 5% tolerance for rounding differences
+                logger.warning(f"Math validation failed: {product.quantity} × {product.unit_price} = {calc_total} ≠ {actual_total}")
+                return False
+                
+            return True
+            
+        except (ValueError, ZeroDivisionError):
+            return False
     
     def _extract_products_from_text(self, raw_text: str) -> List[ProductData]:
         """Extract products from raw text when table extraction fails."""
