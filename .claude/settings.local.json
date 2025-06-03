@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker-compose down:*)",
+      "Bash(mv:*)",
+      "Bash(rmdir:*)",
+      "Bash(true)",
+      "Bash(mkdir:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": false
+}

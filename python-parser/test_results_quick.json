@@ -1,0 +1,192 @@
+{
+  "success": true,
+  "data": {
+    "bill": {
+      "bill_number": "502",
+      "bill_date": "19-05-2025",
+      "currency": "EUR",
+      "customer_code": "MSCE00068",
+      "customer_name": "S.C. TEXBRA SRL",
+      "customer_address": "STR. VADENI 16, 810176 BRAILA, ROMANIA",
+      "gross_weight_kg": "328",
+      "net_weight_kg": "297.50",
+      "package_count": 46,
+      "shipping_term": "CIF   Costs Insurance and freight - BRAILA",
+      "total_amount": "15473.37"
+    },
+    "deliveries": [
+      {
+        "ddt_series": "MS5LH0002",
+        "ddt_number": "3635",
+        "ddt_date": "19-05-2025",
+        "ddt_reason": "CLV",
+        "model_number": "MMM25.221160116.50",
+        "model_name": "ELIOT",
+        "order_series": "MS5CE0002",
+        "order_number": "1394",
+        "product_name": "CAMICIA",
+        "product_properties": "100% Cotone",
+        "products": [
+          {
+            "product_code": "BAGUETTE",
+            "description": null,
+            "unit_of_measure": "NR",
+            "quantity": null,
+            "unit_price": "173",
+            "total_price": "0.34"
+          }
+        ]
+      },
+      {
+        "ddt_series": "MS5LH0002",
+        "ddt_number": "3636",
+        "ddt_date": "19-05-2025",
+        "ddt_reason": "CLV",
+        "model_number": "MMM25.221160116.70",
+        "model_name": "ELIOT",
+        "order_series": "MS5CE0002",
+        "order_number": "1395",
+        "product_name": "CAMICIA",
+        "product_properties": "100% Cotone",
+        "products": []
+      },
+      {
+        "ddt_series": "MS5LH0002",
+        "ddt_number": "3637",
+        "ddt_date": "19-05-2025",
+        "ddt_reason": "CLV",
+        "model_number": "MMM25.291160436.50",
+        "model_name": "ALI",
+        "order_series": "MS5CE0002",
+        "order_number": "1392",
+        "product_name": "CAMICIA",
+        "product_properties": "100% Cotone",
+        "products": [
+          {
+            "product_code": "BAGUETTE",
+            "description": null,
+            "unit_of_measure": "NR",
+            "quantity": null,
+            "unit_price": "80",
+            "total_price": "0.34"
+          }
+        ]
+      },
+      {
+        "ddt_series": "MS5LH0002",
+        "ddt_number": "3638",
+        "ddt_date": "19-05-2025",
+        "ddt_reason": "CLV",
+        "model_number": "MMM25.291160436.70",
+        "model_name": "ALI",
+        "order_series": "MS5CE0002",
+        "order_number": "1393",
+        "product_name": "CAMICIA",
+        "product_properties": "100% Cotone",
+        "products": [
+          {
+            "product_code": "MMA00.3100348.524651",
+            "description": null,
+            "unit_of_measure": "ETICHETTA A NR. - ETICHET.1,5X10,",
+            "quantity": null,
+            "unit_price": "0.1",
+            "total_price": "5.148"
+          },
+          {
+            "product_code": "APERTO C",
+            "description": null,
+            "unit_of_measure": "MT",
+            "quantity": null,
+            "unit_price": "102.12",
+            "total_price": "0.11"
+          }
+        ]
+      },
+      {
+        "ddt_series": "MS5LH0002",
+        "ddt_number": "3639",
+        "ddt_date": "19-05-2025",
+        "ddt_reason": "CLV",
+        "model_number": "MMM25.291160436.50",
+        "model_name": "ALI",
+        "order_series": "MS5CE0002",
+        "order_number": "1224",
+        "product_name": "CAMICIA",
+        "product_properties": "100% Cotone",
+        "products": []
+      },
+      {
+        "ddt_series": "MS5LH0002",
+        "ddt_number": "3641",
+        "ddt_date": "19-05-2025",
+        "ddt_reason": "CLV",
+        "model_number": "MMM25.261960126.50",
+        "model_name": "TRAU",
+        "order_series": "MS5CE0002",
+        "order_number": "1295",
+        "product_name": "BLUSA",
+        "product_properties": "100% Cotone",
+        "products": [
+          {
+            "product_code": "MSCE00068",
+            "description": null,
+            "unit_of_measure": null,
+            "quantity": null,
+            "unit_price": "502",
+            "total_price": "19"
+          }
+        ]
+      },
+      {
+        "ddt_series": "MS5LH0002",
+        "ddt_number": "3642",
+        "ddt_date": "19-05-2025",
+        "ddt_reason": "CLV",
+        "model_number": "MMM25.261960126.70",
+        "model_name": "TRAU",
+        "order_series": "MS5CE0002",
+        "order_number": "1296",
+        "product_name": "BLUSA",
+        "product_properties": "100% Cotone",
+        "products": []
+      },
+      {
+        "ddt_series": "MS5LH0002",
+        "ddt_number": "3643",
+        "ddt_date": "19-05-2025",
+        "ddt_reason": "CLV",
+        "model_number": "MMM25.261960126.74",
+        "model_name": "TRAU",
+        "order_series": "MS5CE0002",
+        "order_number": "1297",
+        "product_name": "BLUSA",
+        "product_properties": "100% Cotone",
+        "products": []
+      },
+      {
+        "ddt_series": "MS5LH0002",
+        "ddt_number": "3640",
+        "ddt_date": "19-05-2025",
+        "ddt_reason": "CLV",
+        "model_number": "MMM25.291160436.70",
+        "model_name": "ALI",
+        "order_series": "MS5CE0002",
+        "order_number": "1225",
+        "product_name": "CAMICIA",
+        "product_properties": "100% Cotone",
+        "products": []
+      }
+    ],
+    "extraction_method": "camelot+pdfminer",
+    "raw_text": {
+      "page1": "Manifatture di San Marino S.r.l. a Socio Unico\nCapitale Sociale Euro 516.460,00\nIscrizione Registro Società n. 6254\nRiconoscimento giuridico del 14/10/2010\nCod. Identificativo SM03961\n\n47899 Serravalle - REP. SAN MARINO\nVia Tre Settembre, 9\nTelefono 0549 908919\nTelefax 0549 908550\n\n47899 Serravalle - REP. SAN MARINO - Via Tre Settembre, 9\n\nDivisa:\nCliente:\n\nEUR\nMSCE00068\n\nLISTA VALORIZZATA (Fattura proforma)\n\nN° doc:\n\nLV / 502\n\nDel:\n\n19-05-2025\n\nCodice:\n\nMSCE00068\n\nP.IVA UE: RO17378052\n\nSpett.le:\nS.C. TEXBRA SRL\nSTR. VADENI 16\n810176 BRAILA\nROMANIA\n\nLISTA VALORIZZATA  del DDT interno\n\nMS5LH0002 3635\n\nDel: 19-05-2025\n\nCausale\n\nCLV\n\nMateriali per la confezione del mod.\n\nMMM25.221160116.50  /  MS5CE0002 1394\nTessuto: 100% Cotone\nCAMICIA\n\nELIOT\n\nProdotto/Var/Tg\n\nMMA00.1700035.508918\n\n-: 100% Poliestere\nMMA00.1700040.402031\n\n-: 100% Poliestere\n\nMMA00.3000440.402092\n\nMMA00.3000650.402101\n\nMMA00.3100279.517167\n\nMMA00.3100381.552853\n\nMMA00.3800882.408343\n\nMMA00.4200001.416572\n\nInterno adesivo - Rinforzo colli\nAlt. (cm): 150\n\nInterno adesivo - Tela elastica s\nAlt. (cm): 152\n\nFilo per impunture - Titolo 120\nAlt. (cm): 0\n\nFilo per impunture - Titolo 240\n(ex\nAlt. (cm): 0\n\nEtichetta a nr. - Etichetta bandi\n\nEtichetta a nr. - Etic. marchio S\n\nParticolare per confezione -\nBAGUETTE\n\nEtichetta a nr. - Capi normali\n\nMMA00.5100004.517066 / XXX / 001\n\nSigillo - Cartellino Spor\n\nMMA00.5100004.517066 / XXX / 002\n\nSigillo - Cartellino Spor\n\nMMA00.5100004.517066 / XXX / 003\n\nSigillo - Cartellino Spor\n\nMMA00.5100004.517066 / XXX / 004\n\nSigillo - Cartellino Spor\n\nMMA00.5100006.517070\n\nMMA00.5100102.460937\n\nMMA00.5100621.517181\n\nMMA25.1052194.560120 / 001\n\nTessuto: 100% Cotone\nMMA25.1052194.560120 / 415\n\nTessuto: 100% Cotone\nMMA25.2052222.560767\n\nMMA25.2052995.560623\n\nSigillo - Componenti comu\n\nSigillo - ET. ADESIVA BAR\n\nSigillo - Placchetta appe\n\nTessuto - POPELINE PURO C\nAlt. (cm): 148\n\nTessuto - POPELINE PURO C\nAlt. (cm): 148\n\nBottone - Gemello a S\n\nBottone - IMITAZIONE MADR\n\nVoce dog\n\n5903.9091\n\n5903.9091\n\n5208.3216\n\n5208.3216\n\nUM\n\nMT\n\nMT\n\nKM\n\nKM\n\nNR\nNR\n\nNR\n\nNR\nNR\nNR\nNR\nNR\nNR\nNR\nNR\n\nMT\n\nMT\n\nNR\nNR\n\nQtà fatt\n\nPrezzo unitario\n\n52,66\n\n50,6\n\n21,1978\n\n34,19\n\n171\n173\n\n173\n\n410\n173\n173\n173\n173\n137\n193\n173\n\n153,13\n\n90,81\n\n344\n1.211\n\n2,41\n\n1,736\n\n0,766\n\n0,486\n\n0,017\n0,095\n\n0,34\n\n0,04152\n0,06\n0,095\n0,077\n0,27\n0,24\n0,00993\n0,0108\n\n7,75\n\n8,45\n\n0,511\n0,039\n\nImporto\n\n126,911\n\n87,842\n\n16,238\n\n16,616\n\n2,907\n16,435\n\n58,820\n\n17,023\n10,380\n16,435\n13,321\n46,710\n32,880\n1,916\n1,868\n\n1.186,758\n\n767,345\n\n175,784\n47,229\n\nLISTA VALORIZZATA  del DDT interno\n\nMS5LH0002 3636\n\nDel: 19-05-2025\n\nCausale\n\nCLV\n\nMateriali per la confezione del mod.\n\nMMM25.221160116.70  /  MS5CE0002 1395\nTessuto: 100% Cotone\nCAMICIA\n\nELIOT\n\nProdotto/Var/Tg\n\nMMA00.1700035.508918\n\n-: 100% Poliestere\nMMA00.1700040.402031\n\n-: 100% Poliestere\n\nMMA00.3000440.402092\n\nInterno adesivo - Rinforzo colli\nAlt. (cm): 150\n\nInterno adesivo - Tela elastica s\nAlt. (cm): 152\n\nFilo per impunture - Titolo 120\nAlt. (cm): 0\n\nVoce dog\n\n5903.9091\n\n5903.9091\n\nUM\n\nMT\n\nMT\n\nKM\n\nQtà fatt\n\nPrezzo unitario\n\n24,34\n\n23,4\n\n9,8022\n\n2,41\n\n1,736\n\n0,766\n\nImporto\n\n58,659\n\n40,622\n\n7,508\n\nLISTA VALORIZZATA\n\nPage 1 of 5\n\n  \n  \n\f",
+      "page2": "Manifatture di San Marino S.r.l. a Socio Unico\nCapitale Sociale Euro 516.460,00\nIscrizione Registro Società n. 6254\nRiconoscimento giuridico del 14/10/2010\nCod. Identificativo SM03961\n\n47899 Serravalle - REP. SAN MARINO\nVia Tre Settembre, 9\nTelefono 0549 908919\nTelefax 0549 908550\n\n47899 Serravalle - REP. SAN MARINO - Via Tre Settembre, 9\n\nDivisa:\nCliente:\n\nEUR\nMSCE00068\n\nLISTA VALORIZZATA (Fattura proforma)\n\nN° doc:\n\nLV / 502\n\nDel:\n\n19-05-2025\n\nProdotto/Var/Tg\n\nVoce dog\n\nUM\n\nQtà fatt\n\nPrezzo unitario\n\nImporto\n\nMMA00.3000650.402101\n\nMMA00.3100279.517167\n\nMMA00.3100381.552853\n\nMMA00.3800882.408343\n\nMMA00.4200001.416572\n\nFilo per impunture - Titolo 240\n(ex\nAlt. (cm): 0\n\nEtichetta a nr. - Etichetta bandi\n\nEtichetta a nr. - Etic. marchio S\n\nParticolare per confezione -\nBAGUETTE\n\nEtichetta a nr. - Capi normali\n\nMMA00.5100004.517066 / XXX / 001\n\nSigillo - Cartellino Spor\n\nMMA00.5100004.517066 / XXX / 002\n\nSigillo - Cartellino Spor\n\nMMA00.5100004.517066 / XXX / 003\n\nSigillo - Cartellino Spor\n\nMMA00.5100004.517066 / XXX / 004\n\nSigillo - Cartellino Spor\n\nMMA00.5100006.517070\n\nMMA00.5100102.460937\n\nMMA00.5100621.517181\n\nMMA25.1052194.560120 / 001\n\nTessuto: 100% Cotone\nMMA25.1052194.560120 / 415\n\nTessuto: 100% Cotone\nMMA25.2052222.560767\n\nMMA25.2052995.560623\n\nSigillo - Componenti comu\n\nSigillo - ET. ADESIVA BAR\n\nSigillo - Placchetta appe\n\nTessuto - POPELINE PURO C\nAlt. (cm): 148\n\nTessuto - POPELINE PURO C\nAlt. (cm): 148\n\nBottone - Gemello a S\n\nBottone - IMITAZIONE MADR\n\nKM\n\nNR\nNR\n\nNR\n\nNR\nNR\nNR\nNR\nNR\nNR\nNR\nNR\n\nMT\n\nMT\n\nNR\nNR\n\n15,81\n\n79\n80\n\n80\n\n190\n80\n80\n80\n80\n63\n89\n80\n\n70,81\n\n41,99\n\n162\n560\n\n0,486\n\n0,017\n0,095\n\n0,34\n\n0,04152\n0,06\n0,095\n0,077\n0,27\n0,24\n0,00993\n0,0108\n\n7,75\n\n8,45\n\n0,511\n0,039\n\n5208.3216\n\n5208.3216\n\nLISTA VALORIZZATA  del DDT interno\n\nMS5LH0002 3637\n\nDel: 19-05-2025\n\nCausale\n\nCLV\n\nMateriali per la confezione del mod.\n\nMMM25.291160436.50  /  MS5CE0002 1392\nTessuto: 100% Cotone\nCAMICIA\n\nALI\n\nProdotto/Var/Tg\n\nMMA00.1700005.402015\n\n-: 100% Poliammide\n\nMMA00.1700026.435448\n\n-: 100% Poliestere\n\nMMA00.2000610.559762\n\nMMA00.3000400.402090\n\nMMA00.3000440.402092\n\nMMA00.3000650.402101\n\nMMA00.3100116.424042\n\nMMA00.3100348.524651\n\nMMA00.3900004.437408\n\nInterno adesivo - Trama inserita\nAlt. (cm): 150\n\nInterno adesivo - Tela doppio\npun\nAlt. (cm): 150\n\nBottone - BOTTONE IN CORN\n\nFilo per impunture - Titolo 70\nAlt. (cm): 0\n\nFilo per impunture - Titolo 120\nAlt. (cm): 0\n\nFilo per impunture - Titolo 240\n(ex\nAlt. (cm): 0\n\nEtichetta a nr. - Etichetta ''''S\n\nEtichetta a nr. - ETICHET.1,5x10,\n\nPassamaneria a metri - SBIECO\nAPERTO C\n\nMMA00.4200001.416572\n\nEtichetta a nr. - Capi normali\n\nMMA00.5100020.402316\n\nMMA00.5100102.460937\n\nMMA00.5100320.402328\n\nMMA00.51004403.559364\n\nMMA00.5100634.551415\n\nSigillo - FERMASIGILLO S\nAlt. (cm): 0\n\nSigillo - ET. ADESIVA BAR\n\nSigillo - CARTELLINO MARC\nAlt. (cm): 0\n\nSigillo - Cartellino manu\n\nSigillo - Placchetta appe\n\nVoce dog\n\n5903.9091\n\nUM\n\nMT\n\n5903.2010\n\nMT\n\nNR\n\nKM\n\nKM\n\nKM\n\nNR\nNR\n\nMT\n\nNR\n\nNR\n\nNR\n\nNR\n\nNR\nNR\n\nQtà fatt\n\nPrezzo unitario\n\n57,4\n\n21,32\n\n3.906\n\n25,25292\n\n36,0756\n\n65,592\n\n355\n355\n\n464,88\n\n1.215\n\n355\n\n385\n\n355\n\n369\n355\n\n2,07\n\n1,94\n\n0,19\n\n1,666\n\n0,766\n\n0,486\n\n0,016\n0,066\n\n0,11\n\n0,04152\n\n0,091\n\n0,00993\n\n0,121\n\n0,035\n0,0108\n\n7,684\n\n1,343\n7,600\n\n27,200\n\n7,889\n4,800\n7,600\n6,160\n21,600\n15,120\n0,884\n0,864\n\n548,778\n\n354,816\n\n82,782\n21,840\n\nImporto\n\n118,818\n\n41,361\n\n742,140\n\n42,071\n\n27,634\n\n31,878\n\n5,680\n23,430\n\n51,137\n\n50,447\n\n32,305\n\n3,823\n\n42,955\n\n12,915\n3,834\n\nLISTA VALORIZZATA\n\nPage 2 of 5\n\n  \n  \n\f",
+      "page3": "Manifatture di San Marino S.r.l. a Socio Unico\nCapitale Sociale Euro 516.460,00\nIscrizione Registro Società n. 6254\nRiconoscimento giuridico del 14/10/2010\nCod. Identificativo SM03961\n\n47899 Serravalle - REP. SAN MARINO\nVia Tre Settembre, 9\nTelefono 0549 908919\nTelefax 0549 908550\n\n47899 Serravalle - REP. SAN MARINO - Via Tre Settembre, 9\n\nDivisa:\nCliente:\n\nEUR\nMSCE00068\n\nLISTA VALORIZZATA (Fattura proforma)\n\nN° doc:\n\nLV / 502\n\nDel:\n\n19-05-2025\n\nProdotto/Var/Tg\n\nMMA00.5200767.487336\n\nMMA25.1052216.561311\n\nTessuto: 100% Cotone\n\nMateriale da imballo - Bustina\nportabo\n\nTessuto - TWILL PURO COTO\nAlt. (cm): 150\n\nVoce dog\n\n5208.3300\n\nUM\n\nNR\n\nMT\n\nQtà fatt\n\nPrezzo unitario\n\n355\n\n592,3\n\n0,097\n\n12,95\n\nImporto\n\n34,435\n\n7.670,285\n\nLISTA VALORIZZATA  del DDT interno\n\nMS5LH0002 3638\n\nDel: 19-05-2025\n\nCausale\n\nCLV\n\nMateriali per la confezione del mod.\n\nMMM25.291160436.70  /  MS5CE0002 1393\nTessuto: 100% Cotone\nCAMICIA\n\nALI\n\nProdotto/Var/Tg\n\nMMA00.1700005.402015\n\n-: 100% Poliammide\n\nMMA00.1700026.435448\n\n-: 100% Poliestere\n\nMMA00.2000610.559762\n\nMMA00.3000400.402090\n\nMMA00.3000440.402092\n\nMMA00.3000650.402101\n\nMMA00.3100116.424042\n\nMMA00.3100348.524651\n\nMMA00.3900004.437408\n\nInterno adesivo - Trama inserita\nAlt. (cm): 150\n\nInterno adesivo - Tela doppio\npun\nAlt. (cm): 150\n\nBottone - BOTTONE IN CORN\n\nFilo per impunture - Titolo 70\nAlt. (cm): 0\n\nFilo per impunture - Titolo 120\nAlt. (cm): 0\n\nFilo per impunture - Titolo 240\n(ex\nAlt. (cm): 0\n\nEtichetta a nr. - Etichetta ''''S\n\nEtichetta a nr. - ETICHET.1,5x10,\n\nPassamaneria a metri - SBIECO\nAPERTO C\n\nMMA00.4200001.416572\n\nEtichetta a nr. - Capi normali\n\nMMA00.5100020.402316\n\nMMA00.5100102.460937\n\nMMA00.5100320.402328\n\nMMA00.51004403.559364\n\nMMA00.5100634.551415\n\nMMA00.5200767.487336\n\nMMA25.1052216.561311\n\nTessuto: 100% Cotone\n\nSigillo - FERMASIGILLO S\nAlt. (cm): 0\n\nSigillo - ET. ADESIVA BAR\n\nSigillo - CARTELLINO MARC\nAlt. (cm): 0\n\nSigillo - Cartellino manu\n\nSigillo - Placchetta appe\n\nMateriale da imballo - Bustina\nportabo\n\nTessuto - TWILL PURO COTO\nAlt. (cm): 150\n\nVoce dog\n\n5903.9091\n\nUM\n\nMT\n\n5903.2010\n\n5208.3300\n\nMT\n\nNR\n\nKM\n\nKM\n\nKM\n\nNR\nNR\n\nMT\n\nNR\n\nNR\n\nNR\n\nNR\n\nNR\nNR\n\nNR\n\nMT\n\nQtà fatt\n\nPrezzo unitario\n\n12,6\n\n4,68\n\n857\n\n5,54708\n\n7,9244\n\n14,408\n\n78\n78\n\n102,12\n\n2,07\n\n1,94\n\n0,19\n\n1,666\n\n0,766\n\n0,486\n\n0,016\n0,066\n\n0,11\n\n267\n\n0,04152\n\n78\n\n84\n\n78\n\n81\n78\n\n78\n\n0,091\n\n0,00993\n\n0,121\n\n0,035\n0,0108\n\n0,097\n\nImporto\n\n26,082\n\n9,079\n\n162,830\n\n9,241\n\n6,070\n\n7,002\n\n1,248\n5,148\n\n11,233\n\n11,086\n\n7,098\n\n0,834\n\n9,438\n\n2,835\n0,842\n\n7,566\n\n130,11\n\n12,95\n\n1.684,925\n\nLISTA VALORIZZATA  del DDT interno\n\nMS5LH0002 3639\n\nDel: 19-05-2025\n\nCausale\n\nCLV\n\nMateriali per la confezione del mod.\n\nMMM25.291160436.50  /  MS5CE0002 1224\nTessuto: 100% Cotone\nCAMICIA\n\nALI\n\nProdotto/Var/Tg\n\nMMA00.5200725.402385\n\nMateriale da imballo -\nCopriappendino\nAlt. (cm): 0\n\nVoce dog\n\nUM\n\nQtà fatt\n\nPrezzo unitario\n\nImporto\n\nNR\n\n511\n\n0,34\n\n173,740\n\nLISTA VALORIZZATA  del DDT interno\n\nMS5LH0002 3640\n\nDel: 19-05-2025\n\nCausale\n\nCLV\n\nLISTA VALORIZZATA\n\nPage 3 of 5\n\n  \n  \n  \n  \n  \n  \n\f",
+      "page4": "Manifatture di San Marino S.r.l. a Socio Unico\nCapitale Sociale Euro 516.460,00\nIscrizione Registro Società n. 6254\nRiconoscimento giuridico del 14/10/2010\nCod. Identificativo SM03961\n\n47899 Serravalle - REP. SAN MARINO\nVia Tre Settembre, 9\nTelefono 0549 908919\nTelefax 0549 908550\n\n47899 Serravalle - REP. SAN MARINO - Via Tre Settembre, 9\n\nDivisa:\nCliente:\n\nEUR\nMSCE00068\n\nLISTA VALORIZZATA (Fattura proforma)\n\nN° doc:\n\nLV / 502\n\nDel:\n\n19-05-2025\n\nMateriali per la confezione del mod.\n\nMMM25.291160436.70  /  MS5CE0002 1225\nTessuto: 100% Cotone\nCAMICIA\n\nALI\n\nProdotto/Var/Tg\n\nMMA00.5200725.402385\n\nMateriale da imballo -\nCopriappendino\nAlt. (cm): 0\n\nVoce dog\n\nUM\n\nQtà fatt\n\nPrezzo unitario\n\nImporto\n\nNR\n\n89\n\n0,34\n\n30,260\n\nLISTA VALORIZZATA  del DDT interno\n\nMS5LH0002 3641\n\nDel: 19-05-2025\n\nCausale\n\nCLV\n\nMateriali per la confezione del mod.\n\nMMM25.261960126.50  /  MS5CE0002 1295\nTessuto: 100% Cotone\nBLUSA\n\nTRAU\n\nQtà fatt\n\nPrezzo unitario\n\nProdotto/Var/Tg\n\nMMA00.1700011.456832\n\n-: 100% Poliestere\n\nMMA00.5200725.402385\n\nMMA25.1052396.561313\n\nTessuto: 100% Cotone\n\nInterno adesivo - Raso bielastico\nAlt. (cm): 150\n\nMateriale da imballo -\nCopriappendino\nAlt. (cm): 0\n\nTessuto - VELLUTO PURO CO\nAlt. (cm): 155\n\nVoce dog\n\n5903.9099\n\n5801.2200\n\nUM\n\nMT\n\nNR\n\nMT\n\nLISTA VALORIZZATA  del DDT interno\n\nMS5LH0002 3642\n\nDel: 19-05-2025\n\nCausale\n\nCLV\n\nMateriali per la confezione del mod.\n\nMMM25.261960126.70  /  MS5CE0002 1296\nTessuto: 100% Cotone\nBLUSA\n\nTRAU\n\nQtà fatt\n\nPrezzo unitario\n\nProdotto/Var/Tg\n\nMMA00.1700011.456832\n\n-: 100% Poliestere\n\nMMA00.5200725.402385\n\nMMA25.1052396.561313\n\nTessuto: 100% Cotone\n\nInterno adesivo - Raso bielastico\nAlt. (cm): 150\n\nMateriale da imballo -\nCopriappendino\nAlt. (cm): 0\n\nTessuto - VELLUTO PURO CO\nAlt. (cm): 155\n\nVoce dog\n\n5903.9099\n\n5801.2200\n\nUM\n\nMT\n\nNR\n\nMT\n\n54,55\n\n175\n\n9,82\n\n66,66\n\n213\n\n12\n\n12,10\n\n118,822\n\nImporto\n\n42,004\n\n59,500\n\nImporto\n\n51,328\n\n72,420\n\n0,77\n\n0,34\n\n0,77\n\n0,34\n\n12,10\n\n145,200\n\nLISTA VALORIZZATA  del DDT interno\n\nMS5LH0002 3643\n\nDel: 19-05-2025\n\nCausale\n\nCLV\n\nMateriali per la confezione del mod.\n\nMMM25.261960126.74  /  MS5CE0002 1297\nTessuto: 100% Cotone\nBLUSA\n\nTRAU\n\nProdotto/Var/Tg\n\nMMA00.1700011.456832\n\n-: 100% Poliestere\n\nMMA00.5200725.402385\n\nMMA25.1052396.561313\n\nTessuto: 100% Cotone\n\nInterno adesivo - Raso bielastico\nAlt. (cm): 150\n\nMateriale da imballo -\nCopriappendino\nAlt. (cm): 0\n\nTessuto - VELLUTO PURO CO\nAlt. (cm): 155\n\nVoce dog\n\n5903.9099\n\n5801.2200\n\nUM\n\nMT\n\nNR\n\nMT\n\nQtà fatt\n\nPrezzo unitario\n\nImporto\n\n3,79\n\n12\n\n0,68\n\n0,77\n\n0,34\n\n12,10\n\n2,918\n\n4,080\n\n8,228\n\nTot importo:\n\n( EUR )\n\n15.473,37\n\nPorto:\n\nCIF   Costs Insurance and freight - BRAILA\n\nNumero colli:\n\n46\n\nPeso netto\n\n( KG ):\n\n297,5\n\nPeso lordo\n\n( KG ):\n\n328\n\nLISTA VALORIZZATA\n\nPage 4 of 5\n\n  \n  \n  \n  \n  \n  \n\f",
+      "page5": "Manifatture di San Marino S.r.l. a Socio Unico\nCapitale Sociale Euro 516.460,00\nIscrizione Registro Società n. 6254\nRiconoscimento giuridico del 14/10/2010\nCod. Identificativo SM03961\n\n47899 Serravalle - REP. SAN MARINO\nVia Tre Settembre, 9\nTelefono 0549 908919\nTelefax 0549 908550\n\n47899 Serravalle - REP. SAN MARINO - Via Tre Settembre, 9\n\nDivisa:\nCliente:\n\nEUR\nMSCE00068\n\nLISTA VALORIZZATA (Fattura proforma)\n\nN° doc:\n\nLV / 502\n\nDel:\n\n19-05-2025\n\nVALORE AI SOLI FINI STATISTICI E/O DOGANALI\n\nIl sottoscritto MANIFATTURE DI SAN MARINO S.r.l. a Socio Unico\n\n                                                                           Dichiara\n\nChe la merce di cui alla fattura nr. 502 LV Del 19-05-2025 è stata costruita secondo standard civili, per usi civili e che pertanto non\nrientra tra quelle descritte nell' allegato I del Reg. 1334/2000 e successive modificazioni ed integrazioni (tecnologie a duplice uso), e\nche, in particolare, non ricorre alcuna limitazione prevista dagli articoli 3.4 e 5 del suddetto regolamento.\n\nY922  \"La merce riferita alla documentazione in oggetto, non rientra nell'elenco dei beni come da regolamento CE1523/2007, pertanto non\ncontiene pelliccia di cane o di gatto.\"\n\nMERCE DI ORIGINE U.E.\n\nCODICI COMPOSIZIONE TESSUTI\nPA   Poliammide\nPL   Poliestere\n\nCODES COMPOSITION TISSUS\n\nZEICHEN ERKLARUNG\n\nFABRIC COMPOSITION CODES\n\nPoliammide\n\nPoliestere\n\nPoliammide\n\nPoliestere\n\nPoliammide\n\nPoliestere\n\nLISTA VALORIZZATA\n\nPage 5 of 5\n\n\f"
+    },
+    "validation_checksum_ok": false,
+    "parsing_errors": []
+  },
+  "message": "Invoice parsing completed but checksum validation failed."
+}

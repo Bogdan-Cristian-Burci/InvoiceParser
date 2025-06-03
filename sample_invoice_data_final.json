@@ -1,0 +1,310 @@
+{
+  "success": false,
+  "data": {
+    "bill": {
+      "bill_number": "502",
+      "bill_date": "19-05-2025",
+      "currency": null,
+      "customer_code": "EUR",
+      "customer_name": "S.C. TEXBRA SRL",
+      "customer_address": "STR. VADENI 16, 908919\nT, EUR",
+      "gross_weight_kg": null,
+      "net_weight_kg": null,
+      "package_count": null,
+      "shipping_term": null,
+      "total_amount": null
+    },
+    "delivery": {
+      "ddt_number": "MS5LH0002 3635",
+      "ddt_date": "19-05-2025",
+      "model_code": "MMM25.221160116.50\u00a0\u00a0/\u00a0\u00a0MS5CE0002 1394",
+      "model_internal_code": null,
+      "model_label": "100% Cotone"
+    },
+    "products": [
+      {
+        "product_code": "Interno adesivo - Rinforzo colli",
+        "description": "MMA00.1700035.508918 | Alt. (cm): 150 | -: 100% Poliestere | Interno adesivo - Tela elastica s | MMA00.1700040.402031 | Alt. (cm): 152 | -: 100% Poliestere | Filo per impunture - Titolo 120 | MMA00.3000440.402092 | Alt. (cm): 0",
+        "material": null,
+        "unit_of_measure": "MT\nMT\nKM",
+        "quantity": "52.66",
+        "unit_price": "2.41",
+        "total_price": "126.911",
+        "width_cm": null
+      },
+      {
+        "product_code": "Filo per impunture - Titolo 240",
+        "description": "(ex | MMA00.3000650.402101 | Alt. (cm): 0",
+        "material": null,
+        "unit_of_measure": "KM",
+        "quantity": "34.19",
+        "unit_price": "0.486",
+        "total_price": "16.616",
+        "width_cm": null
+      },
+      {
+        "product_code": "Etichetta a nr. - Etichetta bandi",
+        "description": "MMA00.3100279.517167 | Etichetta a nr. - Etic. marchio S | MMA00.3100381.552853 | Particolare per confezione - | MMA00.3800882.408343 | BAGUETTE | Etichetta a nr. - Capi normali | MMA00.4200001.416572 | Sigillo - Cartellino Spor | MMA00.5100004.517066 / XXX / 001 | Sigillo - Cartellino Spor | MMA00.5100004.517066 / XXX / 002 | Sigillo - Cartellino Spor | MMA00.5100004.517066 / XXX / 003 | Sigillo - Cartellino Spor | MMA00.5100004.517066 / XXX / 004 | Sigillo - Componenti comu | MMA00.5100006.517070 | Sigillo - ET. ADESIVA BAR | MMA00.5100102.460937 | Sigillo - Placchetta appe | MMA00.5100621.517181 | Tessuto - POPELINE PURO C | MMA25.1052194.560120 / 001 | Alt. (cm): 148 | Tessuto: 100% Cotone | Tessuto - POPELINE PURO C | MMA25.1052194.560120 / 415 | Alt. (cm): 148 | Tessuto: 100% Cotone | Bottone - Gemello a S | MMA25.2052222.560767 | Bottone - IMITAZIONE MADR | MMA25.2052995.560623",
+        "material": null,
+        "unit_of_measure": "NR\nNR\nNR\nNR\nNR\nNR\nNR\nNR\nNR\nNR\nNR\nMT\nMT\nNR\nNR",
+        "quantity": "171",
+        "unit_price": "0.017",
+        "total_price": "2.907",
+        "width_cm": null
+      },
+      {
+        "product_code": "Interno adesivo - Rinforzo colli",
+        "description": "MMA00.1700035.508918 | Alt. (cm): 150 | -: 100% Poliestere | Interno adesivo - Tela elastica s | MMA00.1700040.402031 | Alt. (cm): 152 | -: 100% Poliestere | Filo per impunture - Titolo 120 | MMA00.3000440.402092 | Alt. (cm): 0",
+        "material": null,
+        "unit_of_measure": "MT\nMT\nKM",
+        "quantity": "24.34",
+        "unit_price": "2.41",
+        "total_price": "58.659",
+        "width_cm": null
+      },
+      {
+        "product_code": "Filo per impunture - Titolo 240",
+        "description": "(ex | MMA00.3000650.402101 | Alt. (cm): 0 | Etichetta a nr. - Etichetta bandi | MMA00.3100279.517167 | Etichetta a nr. - Etic. marchio S | MMA00.3100381.552853 | Particolare per confezione - | MMA00.3800882.408343 | BAGUETTE | Etichetta a nr. - Capi normali | MMA00.4200001.416572 | Sigillo - Cartellino Spor | MMA00.5100004.517066 / XXX / 001 | Sigillo - Cartellino Spor | MMA00.5100004.517066 / XXX / 002 | Sigillo - Cartellino Spor | MMA00.5100004.517066 / XXX / 003 | Sigillo - Cartellino Spor | MMA00.5100004.517066 / XXX / 004 | Sigillo - Componenti comu | MMA00.5100006.517070 | Sigillo - ET. ADESIVA BAR | MMA00.5100102.460937 | Sigillo - Placchetta appe | MMA00.5100621.517181 | Tessuto - POPELINE PURO C | MMA25.1052194.560120 / 001 | Alt. (cm): 148 | Tessuto: 100% Cotone | Tessuto - POPELINE PURO C | MMA25.1052194.560120 / 415 | Alt. (cm): 148 | Tessuto: 100% Cotone | Bottone - Gemello a S | MMA25.2052222.560767 | Bottone - IMITAZIONE MADR | MMA25.2052995.560623",
+        "material": null,
+        "unit_of_measure": "KM\nNR\nNR\nNR\nNR\nNR\nNR\nNR\nNR\nNR\nNR\nNR\nMT\nMT\nNR\nNR",
+        "quantity": "15.81",
+        "unit_price": "0.486",
+        "total_price": "7.684",
+        "width_cm": null
+      },
+      {
+        "product_code": "Interno adesivo - Trama inserita",
+        "description": "MMA00.1700005.402015 | Alt. (cm): 150 | -: 100% Poliammide",
+        "material": null,
+        "unit_of_measure": "MT",
+        "quantity": "57.4",
+        "unit_price": "2.07",
+        "total_price": "118.818",
+        "width_cm": null
+      },
+      {
+        "product_code": "Interno adesivo - Tela doppio",
+        "description": "MMA00.1700026.435448 | pun | -: 100% Poliestere | Alt. (cm): 150",
+        "material": null,
+        "unit_of_measure": "MT",
+        "quantity": "21.32",
+        "unit_price": "1.94",
+        "total_price": "41.361",
+        "width_cm": null
+      },
+      {
+        "product_code": "Bottone - BOTTONE IN CORN",
+        "description": "MMA00.2000610.559762 | Filo per impunture - Titolo 70 | MMA00.3000400.402090 | Alt. (cm): 0 | Filo per impunture - Titolo 120 | MMA00.3000440.402092 | Alt. (cm): 0",
+        "material": null,
+        "unit_of_measure": "NR\nKM\nKM",
+        "quantity": "3.906",
+        "unit_price": "0.19",
+        "total_price": "742.140",
+        "width_cm": null
+      },
+      {
+        "product_code": "Filo per impunture - Titolo 240",
+        "description": "(ex | MMA00.3000650.402101 | Alt. (cm): 0",
+        "material": null,
+        "unit_of_measure": "KM",
+        "quantity": "65.592",
+        "unit_price": "0.486",
+        "total_price": "31.878",
+        "width_cm": null
+      },
+      {
+        "product_code": "Etichetta a nr. - Etichetta ''''S",
+        "description": "MMA00.3100116.424042 | Etichetta a nr. - ETICHET.1,5x10, | MMA00.3100348.524651 | Passamaneria a metri - SBIECO | MMA00.3900004.437408 | APERTO C | Etichetta a nr. - Capi normali | MMA00.4200001.416572 | Sigillo - FERMASIGILLO S | MMA00.5100020.402316 | Alt. (cm): 0 | Sigillo - ET. ADESIVA BAR | MMA00.5100102.460937 | Sigillo - CARTELLINO MARC | MMA00.5100320.402328 | Alt. (cm): 0 | Sigillo - Cartellino manu | MMA00.51004403.559364 | Sigillo - Placchetta appe | MMA00.5100634.551415",
+        "material": null,
+        "unit_of_measure": "NR\nNR\nMT\nNR\nNR\nNR\nNR\nNR\nNR",
+        "quantity": "355",
+        "unit_price": "0.016",
+        "total_price": "5.680",
+        "width_cm": null
+      },
+      {
+        "product_code": "Materiale da imballo - Bustina",
+        "description": "MMA00.5200767.487336 | portabo | Tessuto - TWILL PURO COTO | MMA25.1052216.561311 | Alt. (cm): 150 | Tessuto: 100% Cotone",
+        "material": null,
+        "unit_of_measure": "NR\nMT",
+        "quantity": "355",
+        "unit_price": "0.097",
+        "total_price": "34.435",
+        "width_cm": null
+      },
+      {
+        "product_code": "Interno adesivo - Trama inserita",
+        "description": "MMA00.1700005.402015 | Alt. (cm): 150 | -: 100% Poliammide",
+        "material": null,
+        "unit_of_measure": "MT",
+        "quantity": "12.6",
+        "unit_price": "2.07",
+        "total_price": "26.082",
+        "width_cm": null
+      },
+      {
+        "product_code": "Interno adesivo - Tela doppio",
+        "description": "MMA00.1700026.435448 | pun | -: 100% Poliestere | Alt. (cm): 150",
+        "material": null,
+        "unit_of_measure": "MT",
+        "quantity": "4.68",
+        "unit_price": "1.94",
+        "total_price": "9.079",
+        "width_cm": null
+      },
+      {
+        "product_code": "Bottone - BOTTONE IN CORN",
+        "description": "MMA00.2000610.559762 | Filo per impunture - Titolo 70 | MMA00.3000400.402090 | Alt. (cm): 0 | Filo per impunture - Titolo 120 | MMA00.3000440.402092 | Alt. (cm): 0",
+        "material": null,
+        "unit_of_measure": "NR\nKM\nKM",
+        "quantity": "857",
+        "unit_price": "0.19",
+        "total_price": "162.830",
+        "width_cm": null
+      },
+      {
+        "product_code": "Filo per impunture - Titolo 240",
+        "description": "(ex | MMA00.3000650.402101 | Alt. (cm): 0",
+        "material": null,
+        "unit_of_measure": "KM",
+        "quantity": "14.408",
+        "unit_price": "0.486",
+        "total_price": "7.002",
+        "width_cm": null
+      },
+      {
+        "product_code": "Etichetta a nr. - Etichetta ''''S",
+        "description": "MMA00.3100116.424042 | Etichetta a nr. - ETICHET.1,5x10, | MMA00.3100348.524651 | Passamaneria a metri - SBIECO | MMA00.3900004.437408 | APERTO C | Etichetta a nr. - Capi normali | MMA00.4200001.416572 | Sigillo - FERMASIGILLO S | MMA00.5100020.402316 | Alt. (cm): 0 | Sigillo - ET. ADESIVA BAR | MMA00.5100102.460937 | Sigillo - CARTELLINO MARC | MMA00.5100320.402328 | Alt. (cm): 0 | Sigillo - Cartellino manu | MMA00.51004403.559364 | Sigillo - Placchetta appe | MMA00.5100634.551415 | Materiale da imballo - Bustina | MMA00.5200767.487336 | portabo | Tessuto - TWILL PURO COTO | MMA25.1052216.561311 | Alt. (cm): 150 | Tessuto: 100% Cotone",
+        "material": null,
+        "unit_of_measure": "NR\nNR\nMT\nNR\nNR\nNR\nNR\nNR\nNR\nNR\nMT",
+        "quantity": "78",
+        "unit_price": "0.016",
+        "total_price": "1.248",
+        "width_cm": null
+      },
+      {
+        "product_code": "Materiale da imballo -",
+        "description": "Copriappendino | MMA00.5200725.402385 | Alt. (cm): 0",
+        "material": null,
+        "unit_of_measure": "NR",
+        "quantity": "511",
+        "unit_price": "0.34",
+        "total_price": "173.740",
+        "width_cm": null
+      },
+      {
+        "product_code": "Materiale da imballo -",
+        "description": "Copriappendino | MMA00.5200725.402385 | Alt. (cm): 0",
+        "material": null,
+        "unit_of_measure": "NR",
+        "quantity": "89",
+        "unit_price": "0.34",
+        "total_price": "30.260",
+        "width_cm": null
+      },
+      {
+        "product_code": "Interno adesivo - Raso bielastico",
+        "description": "MMA00.1700011.456832 | Alt. (cm): 150 | -: 100% Poliestere",
+        "material": null,
+        "unit_of_measure": "MT",
+        "quantity": "54.55",
+        "unit_price": "0.77",
+        "total_price": "42.004",
+        "width_cm": null
+      },
+      {
+        "product_code": "Materiale da imballo -",
+        "description": "Copriappendino | MMA00.5200725.402385 | Alt. (cm): 0",
+        "material": null,
+        "unit_of_measure": "NR",
+        "quantity": "175",
+        "unit_price": "0.34",
+        "total_price": "59.500",
+        "width_cm": null
+      },
+      {
+        "product_code": "Tessuto - VELLUTO PURO CO",
+        "description": "MMA25.1052396.561313 | Alt. (cm): 155 | Tessuto: 100% Cotone",
+        "material": null,
+        "unit_of_measure": "MT",
+        "quantity": "9.82",
+        "unit_price": "12.10",
+        "total_price": "118.822",
+        "width_cm": null
+      },
+      {
+        "product_code": "Interno adesivo - Raso bielastico",
+        "description": "MMA00.1700011.456832 | Alt. (cm): 150 | -: 100% Poliestere",
+        "material": null,
+        "unit_of_measure": "MT",
+        "quantity": "66.66",
+        "unit_price": "0.77",
+        "total_price": "51.328",
+        "width_cm": null
+      },
+      {
+        "product_code": "Materiale da imballo -",
+        "description": "Copriappendino | MMA00.5200725.402385 | Alt. (cm): 0",
+        "material": null,
+        "unit_of_measure": "NR",
+        "quantity": "213",
+        "unit_price": "0.34",
+        "total_price": "72.420",
+        "width_cm": null
+      },
+      {
+        "product_code": "Tessuto - VELLUTO PURO CO",
+        "description": "MMA25.1052396.561313 | Alt. (cm): 155 | Tessuto: 100% Cotone",
+        "material": null,
+        "unit_of_measure": "MT",
+        "quantity": "12",
+        "unit_price": "12.10",
+        "total_price": "145.200",
+        "width_cm": null
+      },
+      {
+        "product_code": "Interno adesivo - Raso bielastico",
+        "description": "MMA00.1700011.456832 | Alt. (cm): 150 | -: 100% Poliestere",
+        "material": null,
+        "unit_of_measure": "MT",
+        "quantity": "3.79",
+        "unit_price": "0.77",
+        "total_price": "2.918",
+        "width_cm": null
+      },
+      {
+        "product_code": "Materiale da imballo -",
+        "description": "Copriappendino | MMA00.5200725.402385 | Alt. (cm): 0",
+        "material": null,
+        "unit_of_measure": "NR",
+        "quantity": "12",
+        "unit_price": "0.34",
+        "total_price": "4.080",
+        "width_cm": null
+      },
+      {
+        "product_code": "Tessuto - VELLUTO PURO CO",
+        "description": "MMA25.1052396.561313 | Alt. (cm): 155 | Tessuto: 100% Cotone",
+        "material": null,
+        "unit_of_measure": "MT",
+        "quantity": "0.68",
+        "unit_price": "12.10",
+        "total_price": "8.228",
+        "width_cm": null
+      }
+    ],
+    "extraction_method": "camelot+pdfminer",
+    "raw_text": {
+      "page1": "Manifatture di San Marino S.r.l. a Socio Unico\nCapitale Sociale Euro 516.460,00\nIscrizione Registro Societ\u00e0 n. 6254\nRiconoscimento giuridico del 14/10/2010\nCod. Identificativo SM03961\n\n47899 Serravalle - REP. SAN MARINO\nVia Tre Settembre, 9\nTelefono 0549 908919\nTelefax 0549 908550\n\n47899 Serravalle - REP. SAN MARINO - Via Tre Settembre, 9\n\nDivisa:\nCliente:\n\nEUR\nMSCE00068\n\nLISTA VALORIZZATA (Fattura proforma)\n\nN\u00b0 doc:\n\nLV / 502\n\nDel:\n\n19-05-2025\n\nCodice:\n\nMSCE00068\n\nP.IVA UE: RO17378052\n\nSpett.le:\nS.C. TEXBRA SRL\nSTR. VADENI 16\n810176 BRAILA\nROMANIA\n\nLISTA VALORIZZATA\u00a0\u00a0del DDT interno\n\nMS5LH0002 3635\n\nDel: 19-05-2025\n\nCausale\n\nCLV\n\nMateriali per la confezione del mod.\n\nMMM25.221160116.50\u00a0\u00a0/\u00a0\u00a0MS5CE0002 1394\nTessuto: 100% Cotone\nCAMICIA\n\nELIOT\n\nProdotto/Var/Tg\n\nMMA00.1700035.508918\n\n-: 100% Poliestere\nMMA00.1700040.402031\n\n-: 100% Poliestere\n\nMMA00.3000440.402092\n\nMMA00.3000650.402101\n\nMMA00.3100279.517167\n\nMMA00.3100381.552853\n\nMMA00.3800882.408343\n\nMMA00.4200001.416572\n\nInterno adesivo - Rinforzo colli\nAlt. (cm): 150\n\nInterno adesivo - Tela elastica s\nAlt. (cm): 152\n\nFilo per impunture - Titolo 120\nAlt. (cm): 0\n\nFilo per impunture - Titolo 240\n(ex\nAlt. (cm): 0\n\nEtichetta a nr. - Etichetta bandi\n\nEtichetta a nr. - Etic. marchio S\n\nParticolare per confezione -\nBAGUETTE\n\nEtichetta a nr. - Capi normali\n\nMMA00.5100004.517066 / XXX / 001\n\nSigillo - Cartellino Spor\n\nMMA00.5100004.517066 / XXX / 002\n\nSigillo - Cartellino Spor\n\nMMA00.5100004.517066 / XXX / 003\n\nSigillo - Cartellino Spor\n\nMMA00.5100004.517066 / XXX / 004\n\nSigillo - Cartellino Spor\n\nMMA00.5100006.517070\n\nMMA00.5100102.460937\n\nMMA00.5100621.517181\n\nMMA25.1052194.560120 / 001\n\nTessuto: 100% Cotone\nMMA25.1052194.560120 / 415\n\nTessuto: 100% Cotone\nMMA25.2052222.560767\n\nMMA25.2052995.560623\n\nSigillo - Componenti comu\n\nSigillo - ET. ADESIVA BAR\n\nSigillo - Placchetta appe\n\nTessuto - POPELINE PURO C\nAlt. (cm): 148\n\nTessuto - POPELINE PURO C\nAlt. (cm): 148\n\nBottone - Gemello a S\n\nBottone - IMITAZIONE MADR\n\nVoce dog\n\n590",
+      "page2": "Manifatture di San Marino S.r.l. a Socio Unico\nCapitale Sociale Euro 516.460,00\nIscrizione Registro Societ\u00e0 n. 6254\nRiconoscimento giuridico del 14/10/2010\nCod. Identificativo SM03961\n\n47899 Serravalle - REP. SAN MARINO\nVia Tre Settembre, 9\nTelefono 0549 908919\nTelefax 0549 908550\n\n47899 Serravalle - REP. SAN MARINO - Via Tre Settembre, 9\n\nDivisa:\nCliente:\n\nEUR\nMSCE00068\n\nLISTA VALORIZZATA (Fattura proforma)\n\nN\u00b0 doc:\n\nLV / 502\n\nDel:\n\n19-05-2025\n\nProdotto/Var/Tg\n\nVoce dog\n\nUM\n\nQt\u00e0 fatt\n\nPrezzo unitario\n\nImporto\n\nMMA00.3000650.402101\n\nMMA00.3100279.517167\n\nMMA00.3100381.552853\n\nMMA00.3800882.408343\n\nMMA00.4200001.416572\n\nFilo per impunture - Titolo 240\n(ex\nAlt. (cm): 0\n\nEtichetta a nr. - Etichetta bandi\n\nEtichetta a nr. - Etic. marchio S\n\nParticolare per confezione -\nBAGUETTE\n\nEtichetta a nr. - Capi normali\n\nMMA00.5100004.517066 / XXX / 001\n\nSigillo - Cartellino Spor\n\nMMA00.5100004.517066 / XXX / 002\n\nSigillo - Cartellino Spor\n\nMMA00.5100004.517066 / XXX / 003\n\nSigillo - Cartellino Spor\n\nMMA00.5100004.517066 / XXX / 004\n\nSigillo - Cartellino Spor\n\nMMA00.5100006.517070\n\nMMA00.5100102.460937\n\nMMA00.5100621.517181\n\nMMA25.1052194.560120 / 001\n\nTessuto: 100% Cotone\nMMA25.1052194.560120 / 415\n\nTessuto: 100% Cotone\nMMA25.2052222.560767\n\nMMA25.2052995.560623\n\nSigillo - Componenti comu\n\nSigillo - ET. ADESIVA BAR\n\nSigillo - Placchetta appe\n\nTessuto - POPELINE PURO C\nAlt. (cm): 148\n\nTessuto - POPELINE PURO C\nAlt. (cm): 148\n\nBottone - Gemello a S\n\nBottone - IMITAZIONE MADR\n\nKM\n\nNR\nNR\n\nNR\n\nNR\nNR\nNR\nNR\nNR\nNR\nNR\nNR\n\nMT\n\nMT\n\nNR\nNR\n\n15,81\n\n79\n80\n\n80\n\n190\n80\n80\n80\n80\n63\n89\n80\n\n70,81\n\n41,99\n\n162\n560\n\n0,486\n\n0,017\n0,095\n\n0,34\n\n0,04152\n0,06\n0,095\n0,077\n0,27\n0,24\n0,00993\n0,0108\n\n7,75\n\n8,45\n\n0,511\n0,039\n\n5208.3216\n\n5208.3216\n\nLISTA VALORIZZATA\u00a0\u00a0del DDT interno\n\nMS5LH0002 3637\n\nDel: 19-05-2025\n\nCausale\n\nCLV\n\nMateriali per la confezione del mod.\n\nMMM25.291160436.50\u00a0\u00a0/\u00a0\u00a0MS5CE0002 1392\nTessuto: 100% Cotone\nCAMICIA\n\nALI\n\nProdotto/Var/Tg\n\nMMA00.1700005.402015\n\n-: 100% Poliammide\n\nMMA00.1700026.43",
+      "page3": "Manifatture di San Marino S.r.l. a Socio Unico\nCapitale Sociale Euro 516.460,00\nIscrizione Registro Societ\u00e0 n. 6254\nRiconoscimento giuridico del 14/10/2010\nCod. Identificativo SM03961\n\n47899 Serravalle - REP. SAN MARINO\nVia Tre Settembre, 9\nTelefono 0549 908919\nTelefax 0549 908550\n\n47899 Serravalle - REP. SAN MARINO - Via Tre Settembre, 9\n\nDivisa:\nCliente:\n\nEUR\nMSCE00068\n\nLISTA VALORIZZATA (Fattura proforma)\n\nN\u00b0 doc:\n\nLV / 502\n\nDel:\n\n19-05-2025\n\nProdotto/Var/Tg\n\nMMA00.5200767.487336\n\nMMA25.1052216.561311\n\nTessuto: 100% Cotone\n\nMateriale da imballo - Bustina\nportabo\n\nTessuto - TWILL PURO COTO\nAlt. (cm): 150\n\nVoce dog\n\n5208.3300\n\nUM\n\nNR\n\nMT\n\nQt\u00e0 fatt\n\nPrezzo unitario\n\n355\n\n592,3\n\n0,097\n\n12,95\n\nImporto\n\n34,435\n\n7.670,285\n\nLISTA VALORIZZATA\u00a0\u00a0del DDT interno\n\nMS5LH0002 3638\n\nDel: 19-05-2025\n\nCausale\n\nCLV\n\nMateriali per la confezione del mod.\n\nMMM25.291160436.70\u00a0\u00a0/\u00a0\u00a0MS5CE0002 1393\nTessuto: 100% Cotone\nCAMICIA\n\nALI\n\nProdotto/Var/Tg\n\nMMA00.1700005.402015\n\n-: 100% Poliammide\n\nMMA00.1700026.435448\n\n-: 100% Poliestere\n\nMMA00.2000610.559762\n\nMMA00.3000400.402090\n\nMMA00.3000440.402092\n\nMMA00.3000650.402101\n\nMMA00.3100116.424042\n\nMMA00.3100348.524651\n\nMMA00.3900004.437408\n\nInterno adesivo - Trama inserita\nAlt. (cm): 150\n\nInterno adesivo - Tela doppio\npun\nAlt. (cm): 150\n\nBottone - BOTTONE IN CORN\n\nFilo per impunture - Titolo 70\nAlt. (cm): 0\n\nFilo per impunture - Titolo 120\nAlt. (cm): 0\n\nFilo per impunture - Titolo 240\n(ex\nAlt. (cm): 0\n\nEtichetta a nr. - Etichetta ''''S\n\nEtichetta a nr. - ETICHET.1,5x10,\n\nPassamaneria a metri - SBIECO\nAPERTO C\n\nMMA00.4200001.416572\n\nEtichetta a nr. - Capi normali\n\nMMA00.5100020.402316\n\nMMA00.5100102.460937\n\nMMA00.5100320.402328\n\nMMA00.51004403.559364\n\nMMA00.5100634.551415\n\nMMA00.5200767.487336\n\nMMA25.1052216.561311\n\nTessuto: 100% Cotone\n\nSigillo - FERMASIGILLO S\nAlt. (cm): 0\n\nSigillo - ET. ADESIVA BAR\n\nSigillo - CARTELLINO MARC\nAlt. (cm): 0\n\nSigillo - Cartellino manu\n\nSigillo - Placchetta appe\n\nMateriale da imballo - Bustina\nportabo\n\nTessuto - TWIL",
+      "page4": "Manifatture di San Marino S.r.l. a Socio Unico\nCapitale Sociale Euro 516.460,00\nIscrizione Registro Societ\u00e0 n. 6254\nRiconoscimento giuridico del 14/10/2010\nCod. Identificativo SM03961\n\n47899 Serravalle - REP. SAN MARINO\nVia Tre Settembre, 9\nTelefono 0549 908919\nTelefax 0549 908550\n\n47899 Serravalle - REP. SAN MARINO - Via Tre Settembre, 9\n\nDivisa:\nCliente:\n\nEUR\nMSCE00068\n\nLISTA VALORIZZATA (Fattura proforma)\n\nN\u00b0 doc:\n\nLV / 502\n\nDel:\n\n19-05-2025\n\nMateriali per la confezione del mod.\n\nMMM25.291160436.70\u00a0\u00a0/\u00a0\u00a0MS5CE0002 1225\nTessuto: 100% Cotone\nCAMICIA\n\nALI\n\nProdotto/Var/Tg\n\nMMA00.5200725.402385\n\nMateriale da imballo -\nCopriappendino\nAlt. (cm): 0\n\nVoce dog\n\nUM\n\nQt\u00e0 fatt\n\nPrezzo unitario\n\nImporto\n\nNR\n\n89\n\n0,34\n\n30,260\n\nLISTA VALORIZZATA\u00a0\u00a0del DDT interno\n\nMS5LH0002 3641\n\nDel: 19-05-2025\n\nCausale\n\nCLV\n\nMateriali per la confezione del mod.\n\nMMM25.261960126.50\u00a0\u00a0/\u00a0\u00a0MS5CE0002 1295\nTessuto: 100% Cotone\nBLUSA\n\nTRAU\n\nQt\u00e0 fatt\n\nPrezzo unitario\n\nProdotto/Var/Tg\n\nMMA00.1700011.456832\n\n-: 100% Poliestere\n\nMMA00.5200725.402385\n\nMMA25.1052396.561313\n\nTessuto: 100% Cotone\n\nInterno adesivo - Raso bielastico\nAlt. (cm): 150\n\nMateriale da imballo -\nCopriappendino\nAlt. (cm): 0\n\nTessuto - VELLUTO PURO CO\nAlt. (cm): 155\n\nVoce dog\n\n5903.9099\n\n5801.2200\n\nUM\n\nMT\n\nNR\n\nMT\n\nLISTA VALORIZZATA\u00a0\u00a0del DDT interno\n\nMS5LH0002 3642\n\nDel: 19-05-2025\n\nCausale\n\nCLV\n\nMateriali per la confezione del mod.\n\nMMM25.261960126.70\u00a0\u00a0/\u00a0\u00a0MS5CE0002 1296\nTessuto: 100% Cotone\nBLUSA\n\nTRAU\n\nQt\u00e0 fatt\n\nPrezzo unitario\n\nProdotto/Var/Tg\n\nMMA00.1700011.456832\n\n-: 100% Poliestere\n\nMMA00.5200725.402385\n\nMMA25.1052396.561313\n\nTessuto: 100% Cotone\n\nInterno adesivo - Raso bielastico\nAlt. (cm): 150\n\nMateriale da imballo -\nCopriappendino\nAlt. (cm): 0\n\nTessuto - VELLUTO PURO CO\nAlt. (cm): 155\n\nVoce dog\n\n5903.9099\n\n5801.2200\n\nUM\n\nMT\n\nNR\n\nMT\n\n54,55\n\n175\n\n9,82\n\n66,66\n\n213\n\n12\n\n12,10\n\n118,822\n\nImporto\n\n42,004\n\n59,500\n\nImporto\n\n51,328\n\n72,420\n\n0,77\n\n0,34\n\n0,77\n\n0,34\n\n12,10\n\n145,200\n\nLISTA VALORIZZATA\u00a0\u00a0del DDT interno\n\nMS5LH0002 3643\n\nDel: 19-05",
+      "page5": "Manifatture di San Marino S.r.l. a Socio Unico\nCapitale Sociale Euro 516.460,00\nIscrizione Registro Societ\u00e0 n. 6254\nRiconoscimento giuridico del 14/10/2010\nCod. Identificativo SM03961\n\n47899 Serravalle - REP. SAN MARINO\nVia Tre Settembre, 9\nTelefono 0549 908919\nTelefax 0549 908550\n\n47899 Serravalle - REP. SAN MARINO - Via Tre Settembre, 9\n\nDivisa:\nCliente:\n\nEUR\nMSCE00068\n\nLISTA VALORIZZATA (Fattura proforma)\n\nN\u00b0 doc:\n\nLV / 502\n\nDel:\n\n19-05-2025\n\nVALORE AI SOLI FINI STATISTICI E/O DOGANALI\n\nIl sottoscritto MANIFATTURE DI SAN MARINO S.r.l. a Socio Unico\n\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 Dichiara\n\nChe la merce di cui alla fattura nr. 502 LV Del 19-05-2025 \u00e8 stata costruita secondo standard civili, per usi civili e che pertanto non\nrientra tra quelle descritte nell' allegato I del Reg. 1334/2000 e successive modificazioni ed integrazioni (tecnologie a duplice uso), e\nche, in particolare, non ricorre alcuna limitazione prevista dagli articoli 3.4 e 5 del suddetto regolamento.\n\nY922\u00a0\u00a0\"La merce riferita alla documentazione in oggetto, non rientra nell'elenco dei beni come da regolamento CE1523/2007, pertanto non\ncontiene pelliccia di cane o di gatto.\"\n\nMERCE DI ORIGINE U.E.\n\nCODICI COMPOSIZIONE TESSUTI\nPA\u00a0\u00a0 Poliammide\nPL\u00a0\u00a0 Poliestere\n\nCODES COMPOSITION TISSUS\n\nZEICHEN ERKLARUNG\n\nFABRIC COMPOSITION CODES\n\nPoliammide\n\nPoliestere\n\nPoliammide\n\nPoliestere\n\nPoliammide\n\nPoliestere\n\nLISTA VALORIZZATA\n\nPage 5 of 5\n\n\f"
+    },
+    "validation_checksum_ok": false,
+    "parsing_errors": [
+      "Could not find Grand Total on invoice to perform checksum validation."
+    ]
+  },
+  "message": "Invoice parsing attempted. Check 'success' and 'parsing_errors' fields."
+}
