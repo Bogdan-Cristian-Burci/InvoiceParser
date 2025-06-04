@@ -239,9 +239,8 @@ class OCRValidator:
         corrected.product_code = product.product_code
         corrected.description = product.description
         corrected.customs_code = product.customs_code
-        corrected.material = product.material
+        # Note: material and width_cm attributes don't exist in current ProductData model
         corrected.unit_of_measure = product.unit_of_measure
-        corrected.width_cm = product.width_cm
         
         # Copy original values
         corrected.quantity = product.quantity

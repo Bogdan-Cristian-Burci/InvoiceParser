@@ -307,14 +307,31 @@ class TableExtractor:
             
             logger.info(f"Camelot: Page {page_number_1_indexed} - Found {tables.n} tables in '{os.path.basename(pdf_path)}'")
             
-            # DEBUG: Log table details
+            # DEBUG: Log detailed table structure to understand column detection
             for i, table in enumerate(tables):
                 df = table.df
                 logger.debug(f"Table {i+1}: {df.shape[0]} rows x {df.shape[1]} cols")
+                logger.debug(f"Table {i+1} DataFrame columns: {list(df.columns)}")
+                
                 if not df.empty:
                     logger.debug(f"Table {i+1} headers: {df.iloc[0].tolist()}")
                     if len(df) > 1:
-                        logger.debug(f"Table {i+1} sample row: {df.iloc[1].tolist()}")
+                        logger.debug(f"Table {i+1} sample row 1: {df.iloc[1].tolist()}")
+                    if len(df) > 2:
+                        logger.debug(f"Table {i+1} sample row 2: {df.iloc[2].tolist()}")
+                    
+                    # Log all rows to see the full structure
+                    logger.debug(f"Table {i+1} FULL STRUCTURE:")
+                    for row_idx in range(min(5, len(df))):  # First 5 rows
+                        row_data = df.iloc[row_idx].tolist()
+                        logger.debug(f"  Row {row_idx}: {row_data}")
+                
+                # Log Camelot table properties if available
+                try:
+                    logger.debug(f"Table {i+1} Camelot accuracy: {getattr(table, 'accuracy', 'N/A')}")
+                    logger.debug(f"Table {i+1} Camelot whitespace: {getattr(table, 'whitespace', 'N/A')}")
+                except:
+                    pass
             
             return [table.df for table in tables]
             
@@ -576,7 +593,7 @@ class TableExtractor:
         return best_delivery
     
     def _extract_products_from_table(self, df, table_index: int, page_number: int, col_map: Dict[str, str]) -> List[ProductData]:
-        """Extract products from a table using proper column mapping."""
+        """Extract products from a table using coordinate-based template matching for consistent invoice format."""
         
         products = []
         
@@ -585,14 +602,9 @@ class TableExtractor:
             logger.debug(f"Table {table_index + 1} has insufficient rows for product extraction")
             return products
         
-        # Try structured extraction first if we have proper column mapping
-        if self._validate_required_columns(col_map, table_index, page_number):
-            logger.debug(f"Using structured extraction for table {table_index + 1}")
-            return self._extract_products_structured(df, table_index, page_number, col_map)
-        
-        # Fallback to flexible extraction with improved logic
-        logger.debug(f"Using flexible extraction for table {table_index + 1}")
-        return self._extract_products_flexible(df, table_index, page_number, col_map)
+        # NEW: Use coordinate-based extraction for consistent template
+        logger.debug(f"Using coordinate-based template extraction for table {table_index + 1}")
+        return self._extract_products_coordinate_based(df, table_index, page_number)
     
     def _extract_products_structured(self, df, table_index: int, page_number: int, col_map: Dict[str, str]) -> List[ProductData]:
         """Extract products using structured column mapping."""
@@ -644,20 +656,28 @@ class TableExtractor:
                 # Step 3: Create product with proper field assignment
                 product = ProductData()
                 
-                # Correct field assignment - MMA codes should be product_code
-                if extracted_data['mma_code']:
-                    # MMA code found - use as product code
-                    product.product_code = extracted_data['mma_code']
-                    # If we also found a description, use it, otherwise use the cell content
-                    if extracted_data['description']:
-                        product.description = extracted_data['description'] 
-                    else:
-                        # Use the rest of the cell content excluding the MMA code
-                        product.description = self._extract_remaining_content_as_description(row_data.iloc[extracted_data['product_column']], extracted_data['mma_code'])
-                else:
-                    # No MMA code found, use description as product code (fallback)
+                # Correct field assignment based on user's sample data - descriptions should be product_code, MMA codes should be in description
+                if extracted_data['description']:
+                    # Use description (Italian product name) as product_code
                     product.product_code = extracted_data['description']
-                    product.description = None
+                    # Build comprehensive description with MMA codes and additional details
+                    if extracted_data['mma_code']:
+                        description_parts = [extracted_data['mma_code']]
+                        # Add any remaining content from the cell
+                        remaining_content = self._extract_remaining_content_as_description(row_data.iloc[extracted_data['product_column']], extracted_data['mma_code'])
+                        if remaining_content:
+                            description_parts.append(remaining_content)
+                        product.description = ' | '.join(description_parts)
+                    else:
+                        # No MMA code, use cell content as description
+                        product.description = self._extract_remaining_content_as_description(row_data.iloc[extracted_data['product_column']], "")
+                elif extracted_data['mma_code']:
+                    # Fallback: Only MMA code found, use as product code
+                    product.product_code = extracted_data['mma_code']
+                    product.description = self._extract_remaining_content_as_description(row_data.iloc[extracted_data['product_column']], extracted_data['mma_code'])
+                else:
+                    # Neither found - skip this row
+                    continue
                 product.quantity = numeric_data['quantity']
                 product.unit_price = numeric_data['unit_price'] 
                 product.total_price = numeric_data['total_price']
@@ -820,7 +840,7 @@ class TableExtractor:
         # Handle multi-line unit strings (common issue from current extraction)
         lines = str(unit_str).split('\n')
         
-        # Look for standard units
+        # Look for standard units and return the first one found
         standard_units = ['MT', 'KG', 'PZ', 'NR', 'KM']
         
         for line in lines:
@@ -828,7 +848,7 @@ class TableExtractor:
             if line in standard_units:
                 return line
                 
-        # If no standard unit found, return first non-empty line
+        # If no standard unit found, return first non-empty line (cleaned)
         for line in lines:
             line = line.strip()
             if line and line.upper() != 'NAN':
@@ -1011,3 +1031,175 @@ class TableExtractor:
             result['total_price'] = numeric_values[0][0]
         
         return result
+    
+    def _extract_products_coordinate_based(self, df, table_index: int, page_number: int) -> List[ProductData]:
+        """
+        Extract products using coordinate-based analysis for consistent 8-column template.
+        
+        Template structure (your specification):
+        Column 1: Prodotto/Var/Tg (descriptions - goes to product_code)
+        Column 2: No header, contains MM codes (goes to description) 
+        Column 3: Always empty
+        Column 4: Voce dog (customs codes - ignored)
+        Column 5: UM (unit of measure)
+        Column 6: Qtà fatt (quantity)
+        Column 7: Prezzo unitario (unit_price)
+        Column 8: Importo (total_price)
+        """
+        
+        products = []
+        
+        logger.debug(f"Coordinate-based extraction for table {table_index + 1}")
+        logger.debug(f"Table shape: {df.shape}")
+        
+        # Ensure we have enough columns for the template
+        if df.shape[1] < 8:
+            logger.warning(f"Table has only {df.shape[1]} columns, expected 8. Using flexible extraction.")
+            return self._extract_products_flexible(df, table_index, page_number, {})
+        
+        # Process each row (skip header)
+        for row_idx in range(1, len(df)):
+            try:
+                row = df.iloc[row_idx]
+                
+                # Extract data from fixed column positions
+                col1_product_desc = str(row.iloc[0]).strip() if len(row) > 0 else ""  # Italian description
+                col2_mm_code = str(row.iloc[1]).strip() if len(row) > 1 else ""       # MM codes
+                col5_unit = str(row.iloc[4]).strip() if len(row) > 4 else ""          # Unit of measure
+                col6_quantity = str(row.iloc[5]).strip() if len(row) > 5 else ""      # Quantity
+                col7_unit_price = str(row.iloc[6]).strip() if len(row) > 6 else ""    # Unit price
+                col8_total = str(row.iloc[7]).strip() if len(row) > 7 else ""         # Total price
+                
+                # Skip empty or header rows
+                if not col1_product_desc or col1_product_desc.lower() in ['nan', 'prodotto/var/tg']:
+                    continue
+                
+                # Extract Italian product description from column 1
+                product_description = self._extract_italian_description(col1_product_desc)
+                if not product_description:
+                    logger.debug(f"Row {row_idx}: No valid Italian product description found")
+                    continue
+                
+                # Parse numeric fields
+                quantity = self._parse_numeric_field(col6_quantity)
+                unit_price = self._parse_numeric_field(col7_unit_price)
+                total_price = self._parse_numeric_field(col8_total)
+                
+                # Validate that we have the essential numeric data
+                if not all([quantity, unit_price, total_price]):
+                    logger.debug(f"Row {row_idx}: Missing essential numeric data")
+                    continue
+                
+                # Create product
+                product = ProductData()
+                product.product_code = product_description  # Italian description as product code
+                
+                # Build description from MM codes and additional info
+                description_parts = []
+                if col2_mm_code and col2_mm_code.lower() != 'nan':
+                    # Extract MM codes from column 2
+                    mm_codes = self._extract_mm_codes(col2_mm_code)
+                    if mm_codes:
+                        description_parts.extend(mm_codes)
+                
+                # Add any additional content from column 1 (excluding the main description)
+                additional_content = self._extract_additional_content(col1_product_desc, product_description)
+                if additional_content:
+                    description_parts.extend(additional_content)
+                
+                product.description = ' | '.join(description_parts) if description_parts else None
+                product.unit_of_measure = self._clean_unit_of_measure(col5_unit)
+                product.quantity = quantity
+                product.unit_price = unit_price
+                product.total_price = total_price
+                
+                # Validate product before adding
+                if self._validate_product_data(product):
+                    products.append(product)
+                    logger.debug(f"✅ Coordinate extraction: {product.product_code} | Q:{product.quantity} | P:{product.unit_price} | T:{product.total_price}")
+                else:
+                    logger.debug(f"❌ Coordinate extraction: Invalid product data for row {row_idx}")
+                    
+            except Exception as e:
+                logger.warning(f"Error processing row {row_idx} with coordinate extraction: {e}")
+                continue
+        
+        logger.info(f"Coordinate-based extraction: {len(products)} valid products from table {table_index + 1}")
+        return products
+    
+    def _extract_italian_description(self, text: str) -> Optional[str]:
+        """Extract Italian product description from text."""
+        
+        if not text or text.lower() == 'nan':
+            return None
+        
+        lines = text.split('\n')
+        
+        # Look for Italian product descriptions
+        italian_patterns = [
+            r'^Interno adesivo.*',
+            r'^Filo per impunture.*',
+            r'^Etichetta a nr.*',
+            r'^Particolare per confezione.*',
+            r'^Sigillo.*',
+            r'^Tessuto.*',
+            r'^Bottone.*',
+            r'^Materiale da imballo.*',
+            r'^Passamaneria.*'
+        ]
+        
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+                
+            for pattern in italian_patterns:
+                if re.match(pattern, line, re.IGNORECASE):
+                    return line
+        
+        # If no specific pattern matches, use the first substantial line
+        for line in lines:
+            line = line.strip()
+            if line and len(line) > 3 and not line.startswith('MMA'):
+                return line
+        
+        return None
+    
+    def _extract_mm_codes(self, text: str) -> List[str]:
+        """Extract MM codes from text."""
+        
+        if not text or text.lower() == 'nan':
+            return []
+        
+        mm_codes = []
+        lines = text.split('\n')
+        
+        for line in lines:
+            line = line.strip()
+            
+            # Look for MM codes (your specification mentions MM prefix, but sample shows MMA)
+            # Handle both MM and MMA patterns
+            if re.match(r'^MM[A-Z]?\d+\.\d+\.\d+', line):
+                mm_codes.append(line)
+        
+        return mm_codes
+    
+    def _extract_additional_content(self, full_text: str, main_description: str) -> List[str]:
+        """Extract additional content from text excluding the main description."""
+        
+        if not full_text or not main_description:
+            return []
+        
+        additional_parts = []
+        lines = full_text.split('\n')
+        
+        for line in lines:
+            line = line.strip()
+            if not line or line == main_description:
+                continue
+            
+            # Include material specifications, dimensions, etc.
+            if any(keyword in line.lower() for keyword in ['alt.', 'cm', '%', 'poliestere', 'cotone', 'poliammide']):
+                additional_parts.append(line)
+        
+        return additional_parts
