@@ -63,12 +63,12 @@ class BillController extends Controller
             // Get the uploaded file
             $pdfFile = $request->file('pdf');
             
-            // Call Python service for PDF parsing
+            // Call Python service for coordinate-based PDF parsing
             $pythonServiceUrl = config('services.python_pdf_parser.url', 'http://localhost:5000');
             
             $response = Http::timeout(60)
                 ->attach('file', file_get_contents($pdfFile->getRealPath()), $pdfFile->getClientOriginalName())
-                ->post($pythonServiceUrl . '/parse-invoice');
+                ->post($pythonServiceUrl . '/parse-invoice-coordinate-based');
             
             if (!$response->successful()) {
                 Log::error('Python PDF parser service failed', [
@@ -85,10 +85,16 @@ class BillController extends Controller
             $parsedData = $response->json();
             
             // Log the complete JSON response from Python service
-            Log::info('Python service response received', [
+            Log::info('Coordinate-based extraction response received', [
                 'status_code' => $response->status(),
                 'response_data' => $parsedData,
-                'file_name' => $pdfFile->getClientOriginalName()
+                'file_name' => $pdfFile->getClientOriginalName(),
+                'extraction_method' => $parsedData['data']['extraction_method'] ?? 'unknown',
+                'row_detection_method' => $parsedData['data']['row_detection_method'] ?? 'unknown',
+                'success' => $parsedData['success'] ?? false,
+                'products_extracted' => count($parsedData['data']['products'] ?? []),
+                'table_found' => $parsedData['data']['debug_info']['table_found'] ?? false,
+                'headers_detected' => $parsedData['data']['debug_info']['headers_detected'] ?? false
             ]);
             
             if (!$parsedData['success']) {
@@ -100,6 +106,27 @@ class BillController extends Controller
             
             // Process the parsed data and create models
             $result = $this->createModelsFromParsedData($parsedData['data']);
+            
+            // Log successful model creation
+            Log::info('Coordinate-based extraction models created successfully', [
+                'file_name' => $pdfFile->getClientOriginalName(),
+                'bill_id' => $result['bill']->id,
+                'delivery_id' => $result['delivery']->id,
+                'products_count' => count($result['products']),
+                'extraction_method' => $parsedData['data']['extraction_method'] ?? 'unknown',
+                'row_detection_method' => $parsedData['data']['row_detection_method'] ?? 'unknown',
+                'total_amount' => $result['bill']->total_amount,
+                'products' => collect($result['products'])->map(function($product) {
+                    return [
+                        'id' => $product->id,
+                        'product_code' => $product->product_code,
+                        'description' => $product->description,
+                        'quantity' => $product->quantity,
+                        'unit_price' => $product->unit_price,
+                        'total_price' => $product->total_price
+                    ];
+                })->toArray()
+            ]);
             
             return response()->json([
                 'message' => 'Invoice processed successfully',
@@ -120,6 +147,70 @@ class BillController extends Controller
             
             return response()->json([
                 'message' => 'Error processing PDF',
+                'error' => $e->getMessage(),
+                'trace' => config('app.debug') ? $e->getTraceAsString() : null,
+            ], 422);
+        }
+    }
+
+    public function testCoordinateBasedParsing(Request $request)
+    {
+        try {
+            $request->validate([
+                'pdf' => 'required|file|mimes:pdf|max:10240',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                'message' => 'Validation failed',
+                'errors' => $e->errors(),
+            ], 422);
+        }
+
+        try {
+            // Get the uploaded file
+            $pdfFile = $request->file('pdf');
+            
+            // Call Python service for coordinate-based PDF parsing
+            $pythonServiceUrl = config('services.python_pdf_parser.url', 'http://localhost:5000');
+            
+            $response = Http::timeout(60)
+                ->attach('file', file_get_contents($pdfFile->getRealPath()), $pdfFile->getClientOriginalName())
+                ->post($pythonServiceUrl . '/parse-invoice-coordinate-based');
+            
+            if (!$response->successful()) {
+                Log::error('Python coordinate-based parser failed', [
+                    'status' => $response->status(),
+                    'body' => $response->body()
+                ]);
+                
+                return response()->json([
+                    'message' => 'Coordinate-based parsing service unavailable',
+                    'error' => 'Failed to connect to coordinate-based parser service',
+                ], 503);
+            }
+            
+            $parsedData = $response->json();
+            
+            // Log the complete JSON response from Python service
+            Log::info('Coordinate-based parsing response received', [
+                'status_code' => $response->status(),
+                'response_data' => $parsedData,
+                'file_name' => $pdfFile->getClientOriginalName()
+            ]);
+            
+            return response()->json([
+                'message' => 'Coordinate-based parsing test completed',
+                'data' => $parsedData,
+            ], 200);
+            
+        } catch (\Exception $e) {
+            Log::error('Error in coordinate-based parsing test', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return response()->json([
+                'message' => 'Error in coordinate-based parsing test',
                 'error' => $e->getMessage(),
                 'trace' => config('app.debug') ? $e->getTraceAsString() : null,
             ], 422);

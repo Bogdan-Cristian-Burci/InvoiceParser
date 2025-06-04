@@ -10,3 +10,4 @@ Route::apiResource('deliveries', DeliveryController::class);
 Route::apiResource('products', ProductController::class);
 
 Route::post('bills/scan-pdf', [BillController::class, 'scanPdf']);
+Route::post('bills/test-coordinate-parsing', [BillController::class, 'testCoordinateBasedParsing']);

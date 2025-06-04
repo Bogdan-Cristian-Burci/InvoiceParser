@@ -11,6 +11,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 from src.invoice_processor import InvoiceProcessor
 from src.utils.helpers import decimal_to_string_default
 from src.utils.config import ConfigManager
+from src.extractors.coordinate_table_extractor import CoordinateTableExtractor
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -161,6 +162,85 @@ def parse_invoice_stats():
         return jsonify({
             'success': False,
             'error': str(e)
+        }), 500
+
+
+@app.route('/parse-invoice-coordinate-based', methods=['POST'])
+def parse_invoice_coordinate_based():
+    """
+    Coordinate-based table parsing endpoint.
+    
+    Uses header detection to map column coordinates and extract table data.
+    Searches for table between MS5LH0002 markers.
+    """
+    logger.info(f"Received request to /parse-invoice-coordinate-based from {request.remote_addr}")
+    
+    try:
+        # Validate request
+        if 'file' not in request.files:
+            logger.warning("No 'file' part in the request.")
+            return jsonify({
+                'success': False, 
+                'error': 'No file uploaded',
+                'message': 'Please ensure the POST request includes a file with key "file".'
+            }), 400
+
+        file = request.files['file']
+        if not file or file.filename == '':
+            logger.warning("No file selected for uploading.")
+            return jsonify({
+                'success': False, 
+                'error': 'No file selected',
+                'message': 'Please select a PDF file to upload.'
+            }), 400
+
+        if not file.filename.lower().endswith('.pdf'):
+            logger.warning(f"Invalid file type: {file.filename}")
+            return jsonify({
+                'success': False, 
+                'error': 'Invalid file type',
+                'message': 'Only PDF files are supported. Received: ' + file.filename
+            }), 400
+
+        logger.info(f"Processing uploaded file with coordinate-based approach: {file.filename}")
+
+        # Process file using temporary storage
+        with tempfile.NamedTemporaryFile(delete=True, suffix='.pdf') as tmp_file_obj:
+            file.save(tmp_file_obj.name)
+            
+            logger.info(f"Parsing PDF with coordinate-based extraction at: {tmp_file_obj.name}")
+            
+            # Initialize coordinate-based extractor
+            coordinate_extractor = CoordinateTableExtractor()
+            
+            # Process through coordinate-based extraction
+            extraction_result = coordinate_extractor.extract_table_data(tmp_file_obj.name)
+            
+            logger.info(f"Coordinate-based processing complete for {file.filename}. Success: {extraction_result.get('success', False)}")
+            
+            # Convert to Laravel-compatible format
+            if extraction_result['success']:
+                laravel_response = coordinate_extractor.convert_to_laravel_format(extraction_result)
+            else:
+                laravel_response = {
+                    'success': False,
+                    'error': 'Coordinate-based extraction failed',
+                    'data': extraction_result
+                }
+            
+            # Return JSON response
+            return app.response_class(
+                response=json.dumps(laravel_response, default=decimal_to_string_default),
+                status=200,
+                mimetype='application/json'
+            )
+
+    except Exception as e:
+        logger.error(f"Unhandled error in /parse-invoice-coordinate-based endpoint: {e}", exc_info=True)
+        return jsonify({
+            'success': False,
+            'error': 'Internal Server Error: ' + str(e),
+            'message': 'An unexpected error occurred during coordinate-based processing. Please check server logs.'
         }), 500
 
 
