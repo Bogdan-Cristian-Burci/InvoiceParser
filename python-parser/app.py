@@ -46,7 +46,11 @@ def get_config():
         'table_extraction_flavor': config.table_extraction_flavor,
         'line_scale': config.line_scale,
         'max_pages_to_process': config.max_pages_to_process,
-        'validate_checksums': config.validate_checksums
+        'validate_checksums': config.validate_checksums,
+        'use_llmwhisperer': config.use_llmwhisperer,
+        'llmwhisperer_mode': config.llmwhisperer_mode,
+        'llmwhisperer_fallback': config.llmwhisperer_fallback,
+        'llmwhisperer_api_key_set': bool(config.llmwhisperer_api_key)
     })
 
 

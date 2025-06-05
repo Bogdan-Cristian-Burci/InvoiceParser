@@ -29,9 +29,16 @@ class ConfigManager:
         # Validation settings
         config.validate_checksums = ConfigManager._get_bool_env("VALIDATE_CHECKSUMS", True)
         
+        # LLMWhisperer settings
+        config.use_llmwhisperer = ConfigManager._get_bool_env("USE_LLMWHISPERER", False)
+        config.llmwhisperer_api_key = ConfigManager._get_str_env("LLMWHISPERER_API_KEY", "")
+        config.llmwhisperer_mode = ConfigManager._get_str_env("LLMWHISPERER_MODE", "text")
+        config.llmwhisperer_fallback = ConfigManager._get_bool_env("LLMWHISPERER_FALLBACK", True)
+        
         logger.info(f"Loaded configuration: OCR={config.enable_ocr_validation}, "
                    f"Flavor={config.table_extraction_flavor}, "
-                   f"LineScale={config.line_scale}")
+                   f"LineScale={config.line_scale}, "
+                   f"LLMWhisperer={config.use_llmwhisperer}")
         
         return config
     

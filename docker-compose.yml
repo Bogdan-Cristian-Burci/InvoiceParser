@@ -35,6 +35,11 @@ services:
             - ./python-parser:/app
         ports:
             - "5000:5000"
+        environment:
+            - USE_LLMWHISPERER=true
+            - LLMWHISPERER_API_KEY=KpF6QJC7c1OuNo_E7bd40webMt9nA1_1minUPRHIj2Q
+            - LLMWHISPERER_MODE=table
+            - LLMWHISPERER_FALLBACK=true
 
     db:
         image: mysql:8.0

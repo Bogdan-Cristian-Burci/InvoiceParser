@@ -96,3 +96,9 @@ class ProcessingConfig:
     line_scale: int = 30
     max_pages_to_process: Optional[int] = None
     validate_checksums: bool = True
+    
+    # LLMWhisperer configuration
+    use_llmwhisperer: bool = False
+    llmwhisperer_api_key: Optional[str] = None
+    llmwhisperer_mode: str = "text"  # "text", "table", or "form"
+    llmwhisperer_fallback: bool = True  # Fallback to other extractors if LLMWhisperer fails

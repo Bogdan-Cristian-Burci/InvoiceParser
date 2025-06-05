@@ -13,3 +13,4 @@ pdfminer.six
 camelot-py[cv]
 PyPDF2
 gunicorn
+llmwhisperer-client
